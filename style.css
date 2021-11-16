@@ -1,0 +1,238 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+@font-face {
+    font-family: 'roman';
+    src: url(fonts/CapitalisTypOasis.ttf) format('truetype');
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
+
+:root {
+    --font_main: 'roman';
+
+    --font_2: 'Open Sans Condensed', sans-serif
+}
+html {
+    font-size: 62.5%; /*62,5*/
+    scroll-behavior: smooth;
+}
+body {
+    overflow: hidden;
+}
+/* bg */
+#bg_index {
+    width: 100vw;
+    height: 100vh;
+    transition: 350ms;
+    background-color: #000000;
+    overflow: hidden;
+    animation: fade 5s ease-in forwards;
+    opacity: 0;
+}
+@keyframes fade {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* typing effect */
+.loader {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 200px;
+    height: 200px;
+    background: #1a1a1f;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.5s;
+    color: #fff;
+    overflow: hidden;
+    -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+}
+
+.loader:hover {
+    background: #03e9f4;
+    color: #050801;
+    box-shadow: 0 0 5px #03e9f4,
+    0 0 5px #03e9f4,
+    0 0 25px #03e9f4,
+    0 0 200px #03e9f4;
+}
+
+.loader span {
+    position: absolute;
+    display: block;
+}
+
+.loader span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(90deg, transparent, #03e9f49f);
+    animation: animate1 2s linear infinite;
+    animation-delay: 0s;
+}
+@keyframes animate1 {
+    0% {
+        left: -100%;
+    }
+    50%, 100%
+    {
+        left: 100%;
+    }
+}
+
+.loader span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(270deg, transparent, #03e9f49f);
+    animation: animate2 2s linear infinite;
+    animation-delay: 1s;
+}
+@keyframes animate2 {
+    0% {
+        right: -100%;
+    }
+    50%,100% {
+        right: 100%;
+    }
+}
+
+.loader span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, #03e9f49f);
+    animation: animate3 2s linear infinite;
+    animation-delay: 0.5s;
+}
+@keyframes animate3 {
+    0% {
+        top: -100%;
+    }
+    50%,100% {
+        top: 100%;
+    }
+}
+
+.loader span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 5px;
+    height: 100%;
+    background: linear-gradient(360deg, transparent, #03e9f49f);
+    animation: animate4 2s linear infinite;
+    animation-delay: 1.5s;
+}
+@keyframes animate4 {
+    0% {
+        bottom: -100%;
+    }
+    50%, 100% {
+        bottom: 100%;
+    }
+}
+
+.loader h3 {
+    font-family: consolas;
+    font-size: 1.9rem;
+    color: #03e9f4;
+    overflow: hidden;
+    letter-spacing: 2px;
+    transition: 0.5s;
+    border-right: 1px solid #03e9f4;
+    animation: typing 5s steps(9) infinite;
+}
+
+.loader:hover h3 {
+    color: #111;
+    border-right: 1px solid #111;
+}
+
+@keyframes typing {
+    0%, 90%, 100% {
+        width: 0px;
+    }
+    30%, 60% {
+        width: 125px;
+    }
+}
+
+
+
+#footer {
+    width: 50rem;
+    height: auto;
+    margin: auto;
+    position: absolute;
+    bottom: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    overflow: hidden;
+}
+.slide_footer {
+    display: flex;
+    width: 100%;
+    text-align: center;
+}
+.text_slide {
+    position: absolute;
+    width: 50%;
+    margin: auto;
+}
+.slide_footer span {
+    color: #ffede1;
+    font-size: 4.5rem;
+    width: 100%;
+    height: 100%;
+    margin: auto;
+    padding: 2rem;
+    padding-right: 12rem;
+    padding-left: 12rem;
+    position: relative;
+    animation: slider 8s ease-in-out forwards infinite ;
+    transform: translateX(50rem);
+}
+
+@keyframes slider {
+    16% {
+        transform: translateX(0rem);
+    }
+    32% {
+        transform: translateX(-47rem);
+    }
+    48% {
+        transform: translateX(-89rem);
+    }
+    64% {
+        transform: translateX(-134.5rem);
+    }
+    80% {
+        transform: translateX(-189rem);
+    }
+    96% {
+        transform: translateX(-231.5rem);
+    }
+    100% {
+        transform: translateX(50rem);
+    }
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 50%;
+    }
+}
