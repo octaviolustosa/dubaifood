@@ -57,15 +57,17 @@ body {
     color: #fff;
     overflow: hidden;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
+    animation: hover 5s ease-in-out alternate infinite;
 }
-
-.loader:hover {
+@keyframes hover {
+    to {
     background: #03e9f4;
     color: #050801;
     box-shadow: 0 0 5px #03e9f4,
     0 0 5px #03e9f4,
     0 0 25px #03e9f4,
     0 0 200px #03e9f4;
+    }
 }
 
 .loader span {
@@ -168,10 +170,10 @@ body {
     }
     30%, 60% {
         width: 125px;
+        color: #111;
+    border-right: 1px solid #111;
     }
 }
-
-
 
 #footer {
     width: 50rem;
@@ -203,16 +205,19 @@ body {
     padding-right: 12rem;
     padding-left: 12rem;
     position: relative;
-    animation: slider 8s ease-in-out forwards infinite ;
+    opacity: 0;
+    animation: slider 8s ease-in-out forwards infinite 5s;
     transform: translateX(50rem);
 }
 
 @keyframes slider {
     16% {
         transform: translateX(0rem);
+        opacity: 1;
     }
     32% {
         transform: translateX(-47rem);
+        opacity: 1;
     }
     48% {
         transform: translateX(-89rem);
@@ -225,9 +230,11 @@ body {
     }
     96% {
         transform: translateX(-231.5rem);
+        opacity: 1;
     }
     100% {
-        transform: translateX(50rem);
+        transform: translateX(-250rem);
+        opacity: 0;
     }
 }
 
@@ -235,4 +242,11 @@ body {
     html {
         font-size: 50%;
     }
+}
+
+@media screen and (max-width 380px) {
+    html {
+        font-size: 25%;
+    }
+    
 }
