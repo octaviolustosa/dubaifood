@@ -23,7 +23,8 @@ html {
     scroll-behavior: smooth;
 }
 body {
-    overflow: hidden;
+    /* overflow: hidden; */
+    background-color: #fff;
 }
 /* bg */
 #bg_index {
@@ -31,9 +32,11 @@ body {
     height: 100vh;
     transition: 350ms;
     background-color: var(--behind-color);
-    overflow: hidden;
+    /* background-color: #fff; */
+    overflow-x: hidden;
     animation: fade 5s ease-in forwards;
     opacity: 0;
+    display: block;
 }
 @keyframes fade {
     from {
@@ -47,7 +50,7 @@ body {
 .arrow-box {
     width: 100px;
     height: 50px;
-    opacity: 0;
+    opacity: 1;
     display: flex;
     text-align: center;
     justify-content: space-around;
@@ -57,7 +60,7 @@ body {
     transform: translateX(10%);
     transform: translateY(50%);
     animation: upndown 2000ms ease-in-out forwards infinite;
-    animation-play-state: running;
+    /* animation-play-state: running; */
     transition: 750ms;
 }
 @keyframes upndown {
@@ -80,6 +83,10 @@ body {
     height: 50px;
     transform: skew(45deg);
     /* border-radius: 20%; */
+    opacity: 1;
+    /* animation: appear 1700ms ease-out forwards; */
+    /* animation-delay: 15000ms; */
+    transition: 750ms;
 }
 
 .arrow-left {
@@ -88,6 +95,10 @@ body {
     height: 50px;
     transform: skew(-45deg);
     /* border-radius: 20%; */
+    opacity: 1;
+    /* animation: appear 1700ms ease-out forwards; */
+    /* animation-delay: 15000ms; */
+    transition: 750ms;
 }
 
 .menu {
@@ -101,8 +112,9 @@ body {
     width: fit-content;
     justify-content: space-around;
     opacity: 0;
-    /* animation: appear 1100ms ease-out forwards; */
-    animation-delay: 7000ms;
+    /* animation: appear 1700ms ease-out forwards; */
+    animation-delay: 10000ms;
+    transition: 750ms;
 }
 
 @keyframes appear {
@@ -126,7 +138,7 @@ body {
     list-style: none;
     text-decoration: none;
     font-family: Arial, Helvetica, sans-serif;
-    color: var(--behind-color);
+    color: var(--neon-color);
 }
 
 /* typing effect */
@@ -145,7 +157,7 @@ body {
     color: #fff;
     overflow: hidden;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0004);
-    animation: hover 5s ease-in-out alternate infinite;
+    /* animation: hover 5s ease-in-out alternate infinite; */
 }
 @keyframes hover {
     to {
@@ -169,7 +181,7 @@ body {
     width: 100%;
     height: 5px;
     background: linear-gradient(90deg, transparent, #03e9f49f);
-    animation: animate1 2s linear infinite;
+    /* animation: animate1 2s linear infinite; */
     animation-delay: 0s;
 }
 @keyframes animate1 {
@@ -188,7 +200,7 @@ body {
     width: 100%;
     height: 5px;
     background: linear-gradient(270deg, transparent, #03e9f49f);
-    animation: animate2 2s linear infinite;
+    /* animation: animate2 2s linear infinite; */
     animation-delay: 1s;
 }
 @keyframes animate2 {
@@ -206,7 +218,7 @@ body {
     width: 5px;
     height: 100%;
     background: linear-gradient(180deg, transparent, #03e9f49f);
-    animation: animate3 2s linear infinite;
+    /* animation: animate3 2s linear infinite; */
     animation-delay: 0.5s;
 }
 @keyframes animate3 {
@@ -224,7 +236,7 @@ body {
     width: 5px;
     height: 100%;
     background: linear-gradient(360deg, transparent, #03e9f49f);
-    animation: animate4 2s linear infinite;
+    /* animation: animate4 2s linear infinite; */
     animation-delay: 1.5s;
 }
 @keyframes animate4 {
@@ -244,7 +256,7 @@ body {
     letter-spacing: 2px;
     transition: 0.5s;
     border-right: 1px solid var(--neon-color);
-    animation: typing 5s steps(9) infinite;
+    /* animation: typing 5s steps(9) infinite; */
 }
 
 .loader:hover h3 {
@@ -294,7 +306,7 @@ body {
     padding-left: 12rem;
     position: relative;
     opacity: 0;
-    animation: slider 8s ease-in-out forwards infinite 5s;
+    /* animation: slider 8s ease-in-out forwards infinite 5s; */
     transform: translateX(50rem);
 }
 
@@ -326,22 +338,62 @@ body {
     }
 }
 
+/* main content */
+
+.main {
+    background-color: var(--neon-color);
+    color: var(--behind-color);
+    width: 500px;
+    height: 350px;
+    margin-top: 750px;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.title {
+    background-color: #ffede1;
+    color: #03e9f4;
+    width: 500px;
+    height: 250px;
+    opacity: 0;
+    transition: 350ms;
+}
+
+.hide {
+    opacity: 0;
+    transform: translateX(0px);
+    transition: 350ms;
+}
+
+.show {
+    opacity: 1;
+    transform: translateX(100px);
+    transition: 350ms;
+
+}
+
+
+
+
+
+
+
+
 @media screen and (max-width: 600px) {
     html {
         font-size: 50%;
     }
-    
+
     .arrow-box {
-        /* position: relative; */
-        /* top: 75%; */
-        /* left: 50%; */
-        /* transform: translateX(50%); */
         width: 100px;
         height: 50px;
-        background-color: white;
-        position: fixed;
-        /* left: 50;
-        transform: translateX(-50px); */
+        position: relative;
+        left: 10%;
+        top: 70%;
+        transform: translateX(-10%);
+        z-index: 10000;
     }
 
 }
