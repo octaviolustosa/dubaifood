@@ -3,15 +3,7 @@
     padding: 0;
     box-sizing: border-box;
 }
-@font-face {
-    /* font-family: 'roman';
-    src: url(fonts/CapitalisTypOasis.ttf) format('truetype'); */
-}
-
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans+Condensed:wght@300&display=swap');
-
 :root {
-    --font_main: 'roman';
 
     --neon-color: #03e9f4;
     --neon-color2: #5158bb;
@@ -21,16 +13,15 @@
     --neon-color6: #004fff;
     --behind-color: #000000;
 
-    --font_2: 'Open Sans Condensed', sans-serif
 }
 html {
     font-size: 62.5%;
     scroll-behavior: smooth;
 }
 body {
-    /* overflow: hidden; */
-    background-color: #0e6ba8;
+    background-color: var(--behind-color);
 }
+
 /* scroll bar */
 ::-webkit-scrollbar {
     width: 10px;
@@ -49,7 +40,7 @@ body {
     /* background-color: #fff; */
     overflow-x: hidden;
     animation: fade 5s ease-in forwards;
-    opacity: 1;
+    opacity: 0;
     display: block;
 }
 @keyframes fade {
@@ -65,8 +56,7 @@ body {
     background-color: var(--behind-color);
     display: flex;
     padding: 2rem;
-    width: 100%;
-    max-width: 1200px;
+    width: 100vw;
     height: 75px;
     position: fixed;
     left: 50%;
@@ -74,27 +64,30 @@ body {
     justify-content: space-around;
     text-align: center;
     place-items: center;
-    border-radius: 25px;
-    opacity: 0.3;
-    animation: appear 1700ms ease-in-out;
+    opacity: 0;
+    animation: appear 1700ms ease-in-out forwards 3750ms;
     transition: 750ms;
     z-index: 1000;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0001);
 }
 @keyframes appear {
     to {
-        opacity: 1;
+        opacity: 0.7;
     }
 }
 .menu:hover {
     transition: 350ms;
     opacity: 1;
 }
-
 .sub-menu {
     display: flex;
     font-size: 2.5rem;
     list-style: none;
+    opacity: 0.5;
+}
+.sub-menu:hover {
+    transition: 350ms;
+    opacity: 1;
 }
 .sub-menu > li {
     padding: 2rem;
@@ -112,6 +105,7 @@ body {
     background-color: var(--neon-color);
     color: var(--behind-color);
 }
+
 /* typing effect */
 .loader {
     position: absolute;
@@ -120,15 +114,15 @@ body {
     transform: translate(-50%, -50%);
     width: 200px;
     height: 200px;
-    background: #000000;
+    background: var(--behind-color);
     display: flex;
     justify-content: center;
     align-items: center;
     transition: 500ms;
-    /* color: #fff; */
     overflow: hidden;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0007);
     animation: hover 5s ease-in-out alternate infinite;
+
 }
 @keyframes hover {
     to {
@@ -288,63 +282,6 @@ body {
     transition: 750ms;
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(3,233,244,1) 100%);
 }
-
-/* #footer {
-    width: 50rem;
-    height: auto;
-    margin: auto;
-    position: absolute;
-    bottom: 1rem;
-    left: 50%;
-    transform: translateX(-50%);
-    overflow: hidden;
-}
-.slide_footer {
-    display: flex;
-    width: 100%;
-    text-align: center;
-}
-.slide_footer span {
-    color: var(--neon-color2);
-    font-size: 4.5rem;
-    width: 100%;
-    height: 100%;
-    margin: auto;
-    padding: 2rem;
-    padding-right: 12rem;
-    padding-left: 12rem;
-    position: relative;
-    opacity: 0;
-    animation: slider 8s ease-in-out forwards infinite 5s;
-    transform: translateX(50rem);
-}
-@keyframes slider {
-    16% {
-        transform: translateX(0rem);
-        opacity: 1;
-    }
-    32% {
-        transform: translateX(-47rem);
-        opacity: 1;
-    }
-    48% {
-        transform: translateX(-89rem);
-    }
-    64% {
-        transform: translateX(-134.5rem);
-    }
-    80% {
-        transform: translateX(-189rem);
-    }
-    96% {
-        transform: translateX(-231.5rem);
-        opacity: 1;
-    }
-    100% {
-        transform: translateX(-250rem);
-        opacity: 0;
-    }
-} */
 
 /* main content */
 .main {
@@ -711,11 +648,6 @@ body {
     0 0 200px var(--neon-color);
     transition: 350ms;
 }
-/* .contact:hover {
-    animation: shake 0.2s infinite;
-    transition: 350ms;
-} */
-
 .medias {
     /* background-color: antiquewhite; */
     width: 250px;
@@ -727,23 +659,6 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
-
-@keyframes shake {
-    0% { transform: translate(1px, 1px) rotate(0deg); }
-    10% { transform: translate(-1px, -2px) rotate(-1deg); }
-    20% { transform: translate(-3px, 0px) rotate(1deg); }
-    30% { transform: translate(3px, 2px) rotate(0deg); }
-    40% { transform: translate(1px, -1px) rotate(1deg); }
-    50% { transform: translate(-1px, 2px) rotate(-1deg); }
-    60% { transform: translate(-3px, 1px) rotate(0deg); }
-    70% { transform: translate(3px, 1px) rotate(-1deg); }
-    80% { transform: translate(-1px, -1px) rotate(1deg); }
-    90% { transform: translate(1px, 2px) rotate(0deg); }
-    100% { transform: translate(1px, -2px) rotate(-1deg); }
-}
-
-
-
 
 
 /* responsive mode */
@@ -762,7 +677,6 @@ body {
     .about {
         margin-top: auto;
     }
-
 }
 
 /* tablet and simillar*/
@@ -792,7 +706,6 @@ body {
         left: 50%;
         transform: translateX(-50%);
     }
-
     .link {
         font-size: 85%;
     }
