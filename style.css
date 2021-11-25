@@ -4,15 +4,7 @@
     box-sizing: border-box;
 }
 :root {
-
     --neon-color: #03e9f4;
-    --neon-color2: #5158bb;
-    --neon-color3: #19647e;
-    --neon-color4: #29339b;
-    --neon-color5: #0e6ba8;
-    --neon-color6: #004fff;
-    --behind-color: #000000;
-
 }
 html {
     font-size: 62.5%;
@@ -42,6 +34,11 @@ body {
     animation: fade 5s ease-in forwards;
     opacity: 0;
     display: block;
+
+
+    scroll-snap-type: y mandatory;
+    -webkit-overflow-scrolling: touch;
+    scroll-behavior: smooth;
 }
 @keyframes fade {
     from {
@@ -301,7 +298,7 @@ body {
     left: 50%;
     transform: translateX(-50%);
 }
-#box-1, #box-2, #box-3 {
+#box-1, #box-2, #box-3, #box-7 {
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
     left: 0;
@@ -310,9 +307,7 @@ body {
 }
 .flip-card {
     background-color: transparent;
-    /* min-width: 100px; */
     max-width: 500px;
-    /* width: 450px; */
     height: 100px;
     perspective: 1000px;
     position: relative;
@@ -369,6 +364,12 @@ body {
     height: 250px;
     opacity: 0;
 }
+.touch {
+    color: var(--behind-color);
+    position: relative;
+    bottom: -50%;
+    font-size: 1.2rem;
+}
 .content {
     font-family: Arial, Helvetica, sans-serif;
     font-size: 2rem;
@@ -378,11 +379,12 @@ body {
     opacity: 0;
     transform: translateX(-100px);
     transition: 350ms;
+
 }
 .show {
     opacity: 1;
     transform: translateX(0px);
-    transition: 350ms;
+    transition: 750ms;
 }
 .hide-left {
     opacity: 0;
@@ -392,7 +394,7 @@ body {
 .show-left {
     opacity: 1;
     transform: translateX(0px);
-    transition: 350ms;
+    transition: 750ms;
 }
 
 /* project section  */
@@ -432,13 +434,21 @@ body {
     font-size: 2rem;
 }
 .exemple-1 img {
+    width: 100%;
     border-radius: 10px;
     transition: 350ms;
-    opacity: 0.8;
+    opacity: 0.7;
 }
 .exemple-1 img:hover {
-    transform: scale(1.125);
+    transform: scale(1.025);
     opacity: 1;
+}
+.label-project {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.6rem;
+    color: var(--behind-color);
+    font-weight: 700;
+    border-radius: 25px;
 }
 #box-4, #box-5, #box-6 {
     background-color: var(--neon-color);
@@ -515,15 +525,11 @@ body {
 /* skils section */
 .h-box {
     width: 100%;
-    /* min-width: 280px; */
     max-width: 950px;
-    /* min-height: 150px; */
     max-height: 500px;
     margin: auto;
     padding: .6rem;
     border-radius: 25px;
-    animation: info 3s ease forwards;
-    /* background-color: blanchedalmond; */
     background: linear-gradient(var(#03e8f457) var(#030303) var(#03e8f43f));
     transition: 350ms;
 }
@@ -695,7 +701,6 @@ body {
     }
 }
 
-
 /* bigger screen */
 @media screen and (max-width: 600px) {
     html {
@@ -720,7 +725,6 @@ body {
         width: 85%;
     }
 }
-
 
 /* medium and small screen */
 @media screen and (max-width: 469px) {
@@ -750,7 +754,6 @@ body {
         width: 95%;
     }
 }
-
 
 /* small screen */
 @media screen and (max-width: 380px) {
