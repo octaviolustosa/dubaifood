@@ -29,6 +29,16 @@ html {
 }
 body {
     /* overflow: hidden; */
+    background-color: #0e6ba8;
+}
+/* scroll bar */
+::-webkit-scrollbar {
+    width: 10px;
+    background-color: #000000;
+}
+::-webkit-scrollbar-thumb {
+    background-color: var(--neon-color);
+    border-radius: 25px;
 }
 /* bg */
 #bg_index {
@@ -56,6 +66,7 @@ body {
     display: flex;
     padding: 2rem;
     width: 100%;
+    max-width: 1200px;
     height: 75px;
     position: fixed;
     left: 50%;
@@ -65,22 +76,18 @@ body {
     place-items: center;
     border-radius: 25px;
     opacity: 0.3;
-    animation: appear 1700ms ease-out;
-    animation-delay: 10000ms;
+    animation: appear 1700ms ease-in-out;
     transition: 750ms;
     z-index: 1000;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0001);
 }
 @keyframes appear {
-    from {
-        opacity: 0;
-    }
     to {
         opacity: 1;
     }
 }
 .menu:hover {
-    transition: 150ms;
+    transition: 350ms;
     opacity: 1;
 }
 
@@ -155,7 +162,6 @@ body {
         left: 100%;
     }
 }
-
 .loader span:nth-child(3) {
     bottom: 0;
     right: -100%;
@@ -173,7 +179,6 @@ body {
         right: 100%;
     }
 }
-
 .loader span:nth-child(2) {
     top: -100%;
     right: 0;
@@ -191,7 +196,6 @@ body {
         top: 100%;
     }
 }
-
 .loader span:nth-child(4) {
     bottom: -100%;
     left: 0;
@@ -209,7 +213,6 @@ body {
         bottom: 100%;
     }
 }
-
 .loader h3 {
     font-family: consolas;
     font-size: 1.9rem;
@@ -220,12 +223,10 @@ body {
     border-right: 1px solid var(--neon-color);
     animation: typing 5s steps(9) infinite;
 }
-
 .loader:hover h3 {
     color: #111;
     border-right: 1px solid #111;
 }
-
 @keyframes typing {
     0%, 90%, 100% {
         width: 0px;
@@ -237,6 +238,7 @@ body {
     }
 }
 
+/* arrow section */
 .arrow-appear {
     /* animation: arrow 15000ms linear forwards; */
     animation-delay: 5000ms;
@@ -354,6 +356,8 @@ body {
     top: 50%;
     transform: translate(-50%, -50%);
 }
+
+/* box section */
 .box-section {
     margin-top: 12.5%;
     position: relative;
@@ -401,7 +405,6 @@ body {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   border-radius: 25px;
-  background-color: violet;
 }
 .flip-card-front {
   background-color: var(--neon-color);
@@ -411,12 +414,13 @@ body {
   padding: 25px;
 }
 .flip-card-back {
-  background-color: var(--neon-color2);
-  color: var(--neon-color);
-  text-align: center;
-  margin: auto;
-  padding: 25px;
-  transform: rotateY(180deg);
+    background-color: var(--behind-color);
+    color: var(--neon-color);
+    text-align: center;
+    margin: auto;
+    padding: 25px;
+    transform: rotateY(180deg);
+    
 }
 .title {
     font-family: Arial, Helvetica, sans-serif;
@@ -453,17 +457,18 @@ body {
     transform: translateX(0px);
     transition: 350ms;
 }
+
+/* project section  */
 .project-section {
     width: 75vw;
-    height: 1200px;
+    max-width: 1200px;
     position: relative;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     margin-top: 5%;
-    margin-bottom: 25%;
-    /* margin-bottom: 50px; */
-    padding: 1rem;
+    margin-bottom: 15%;
+    padding: 0.5rem;
     flex-wrap: wrap;
     text-align: center;
     justify-content: center;
@@ -508,7 +513,7 @@ body {
     padding: 0.5rem;
     margin: auto;
     margin-top: 0%;
-    /* margin-bottom: 5%; */
+    margin-bottom: 5%;
     border-radius: 25px;
     box-shadow: 0 0 5px var(--neon-color),
     0 0 5px var(--neon-color),
@@ -688,7 +693,8 @@ body {
 .contact {
     background-color: var(--behind-color);
     color: var(--neon-color);
-    width: 750px;
+    width: 95%;
+    max-width: 1050px;
     height: 250px;
     position: relative;
     left: 50%;
@@ -741,6 +747,7 @@ body {
 
 
 /* responsive mode */
+
 /* desktop */
 @media screen and (max-width: 1200px) {
     .arrow-box {
@@ -820,15 +827,15 @@ body {
         top: 66%;
     }
     .project-section {
-        width: 85%;
+        width: 95%;
     }
     .project-header {
-        width: 85%;
+        width: 95%;
         margin: auto;
     }
     .about {
-        width: 85%;
-    }    
+        width: 95%;
+    }
 }
 
 
