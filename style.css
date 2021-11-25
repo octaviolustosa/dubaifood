@@ -5,6 +5,7 @@
 }
 :root {
     --neon-color: #03e9f4;
+    --behind-color: #000000;
 }
 html {
     font-size: 62.5%;
