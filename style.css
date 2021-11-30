@@ -24,13 +24,13 @@ body {
     background-color: var(--neon-color);
     border-radius: 25px;
 }
+
 /* bg */
 #bg_index {
     width: 100vw;
     height: 1800px;
     transition: 350ms;
     background-color: var(--behind-color);
-    /* background-color: #fff; */
     overflow-x: hidden;
     animation: fade 5s ease-in forwards;
     opacity: 0;
@@ -232,10 +232,13 @@ body {
 
 /* arrow section */
 .arrow-appear {
-    /* animation: arrow 15000ms linear forwards; */
     animation-delay: 5000ms;
     transition: 750ms;
     opacity: 1;
+}
+
+@keyframes updown {
+    
 }
 @keyframes arrow {
     to {
@@ -245,18 +248,30 @@ body {
 .arrow-box {
     width: 80px;
     height: auto;
-    opacity: 1;
+    opacity: 0.3;
     display: flex;
     text-align: center;
     justify-content: space-around;
     position: absolute;
     left: 50%;
-    top: 85%;
+    top: 75%;
     transform: translateX(-50%);
     transition: 750ms;
     -webkit-box-reflect: below 1px linear-gradient(transparent, #0001);
+    animation: updown 2000ms ease-in-out backwards infinite;
 }
-.arrow-right {
+
+@keyframes updown {
+    from {
+        top:  85%;
+    }
+    to {
+        opacity: 0.7;
+        top: 90%;
+    }
+}
+
+.arrow-right, .arrow-left {
     background-color: var(--neon-color);
     width: 8px;
     height: 50px;
@@ -269,21 +284,12 @@ body {
     background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(3,233,244,1) 100%);
 }
 .arrow-left {
-    background-color: var(--neon-color);
-    width: 8px;
-    height: 50px;
     transform: skew(-45deg);
-    border-radius: 1px;
-    opacity: 1;
-    animation: arrowappear 1700ms ease-in-out forwards infinite;
-    animation-delay: 750ms;
-    transition: 750ms;
-    background: linear-gradient(180deg, rgba(0,0,0,1) 0%, rgba(3,233,244,1) 100%);
 }
 
 /* main content */
 .main {
-    width: 85%; /*500px*/
+    width: 85%;
     height: 350px;
     padding: 0.5rem;
     position: relative;
@@ -293,7 +299,7 @@ body {
 }
 
 /* box section */
-.box-section {
+#box-section {
     margin-top: 12.5%;
     position: relative;
     left: 50%;
@@ -360,7 +366,6 @@ body {
     font-size: 2rem;
     text-align: center;
     font-weight: bold;
-    /* color: #03e9f4; */
     width: 500px;
     height: 250px;
     opacity: 0;
@@ -376,6 +381,13 @@ body {
     font-size: 2rem;
     text-align: center;
 }
+
+.static {
+    opacity: 1;
+    transform: translateX(0);
+    transition: 750ms;
+}
+
 .hide {
     opacity: 0;
     transform: translateX(-100px);
@@ -383,8 +395,8 @@ body {
 
 }
 .show {
-    opacity: 1;
-    transform: translateX(0px);
+    opacity: 0;
+    transform: translateX(100px);
     transition: 750ms;
 }
 .hide-left {
@@ -441,7 +453,7 @@ body {
     opacity: 0.7;
 }
 .exemple-1 img:hover {
-    transform: scale(1.025);
+    transform: scale(1.015);
     opacity: 1;
 }
 .label-project {
@@ -454,6 +466,7 @@ body {
 #box-4, #box-5, #box-6 {
     background-color: var(--neon-color);
     width: 350px;
+    height: fit-content;
     color: var(--behind-color);
     font-family: Arial, Helvetica, sans-serif;
     position: relative;
@@ -509,7 +522,7 @@ body {
     margin: auto;
     padding-left: 2rem;
     transform: translateX(-600px);
-    animation: about 5s ease-in-out forwards infinite;
+    animation: about 10s ease-in-out forwards infinite;
 }
 @keyframes about {
     33% {
@@ -534,9 +547,18 @@ body {
     background: linear-gradient(var(#03e8f457) var(#030303) var(#03e8f43f));
     transition: 350ms;
 }
+.h-skills {
+    opacity: 1;
+    transform: translateX(-50%);
+    transition: 750ms;
+}
 .h-hide {
-    opacity: 0;
-    transform: translateX(-100px);
+    opacity: 1;
+    transform: translateX(-100%);
+}
+.h-show {
+    opacity: 1;
+    transform: translateX(50%);
 }
 .h-box-info {
     font-family: Arial, Helvetica, sans-serif;
@@ -547,8 +569,8 @@ body {
     text-align: center;
     transition: 350ms;
     margin-top: 10%;
-}
-.hab-box {
+    transform: translateX(50%);
+}.hab-box {
     text-align: start;
     justify-content: start;
     display: flex;
@@ -672,11 +694,6 @@ body {
 
 /* desktop */
 @media screen and (max-width: 1200px) {
-    .arrow-box {
-        position: absolute;
-        left: 50%;
-        top: 66%;
-    }
     .project-session {
         margin-bottom: 10%;
         background-color: darkslategray;
@@ -690,11 +707,6 @@ body {
 @media screen and (max-width: 769px) {
     html {
         font-size: 75%;
-    }
-    .arrow-box {
-        position: absolute;
-        left: 50%;
-        top: 66%;
     }
     .about {
         width: 100%;
@@ -715,12 +727,6 @@ body {
     .link {
         font-size: 85%;
     }
-    /* arrow-box */
-    .arrow-appear {
-        position: absolute;
-        left: 50%;
-        top: 66%;
-    }
     /* about section */
     .about {
         width: 85%;
@@ -737,12 +743,6 @@ body {
         position: relative;
         left: 50%;
         transform: translateX(-50%);
-    }
-    /* arrow box */
-    .arrow-appear {
-        position: absolute;
-        left: 50%;
-        top: 66%;
     }
     .project-section {
         width: 95%;
@@ -761,17 +761,9 @@ body {
     html {
         font-size: 50%;
     }
-    .menu {
-        width: 75%;
-        left: 40%;
+    .link {
+        font-size: 62.5%;
     }
-    /* arrowbox */
-    .arrow-appear {
-        position: absolute;
-        left: 50%;
-        top: 66%;
-    }
-    /* box section */
     .main {
         width: 75%;
     }
@@ -785,14 +777,18 @@ body {
         justify-content: center;
     }
     /* project session */
+    .project-header {
+        height: fit-content;
+    }
     .project-section {
     width: 95%;
-    height: auto;
+    /* height: auto; */
     left: 50%;
+    place-items: center;
     transform: translateX(-50%);
     }
     .project-section img {
-        width: 60%;
+        width: 85%;
     }
     #box-4, #box-5, #box-6 {
     left: 50%;
